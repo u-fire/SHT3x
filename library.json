@@ -4,7 +4,7 @@
   "description": "Measure air temperature and humdity.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/u-fire/uFire_SHT30.git"
+    "url": "https://github.com/u-fire/uFire_SHT3x.git"
   },
   "authors": [
     {
