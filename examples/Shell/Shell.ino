@@ -8,7 +8,6 @@
 #include "uFire_SHT3x.h"
 
 uFire::SHT3x sht30;
-
 String buffer, cmd, p1, p2;
 
 void measure()
