@@ -1,7 +1,7 @@
 SHT3x Temperature and Humidity Sensor
 ===
 
-Measure temperature and humidity with the Sensiron SHT3x sensor.
+Measure temperature and humidity with the Sensiron SHT3x sensor. VPD and dew point are also calculated.
 
 #### Summary ℹ️
 
