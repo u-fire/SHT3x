@@ -18,10 +18,12 @@ Measure temperature and humidity with the Sensiron SHT3x sensor. VPD and dew poi
 *   [I²C Raspberry Pi Python Documentation](https://docs.google.com/document/d/1L6FEnlF9Ocf_z9inG57TkL7Tgxomp1aTuIEFOvAblIY/export?format=pdf)
 
 * * * 
-#### Ask a question 🤙
+### Ask a question 🤙
 
 *   [Discord](https://discord.gg/rAnZPdW)
+*   [questions@microfire.co](mailto:questions@microfire.co)
 
 * * *
-### Buy One
-* [SHT30](https://ufire.co/buy/)
+
+### Website
+[microfire.co](https://microfire.co)

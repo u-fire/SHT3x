@@ -1,14 +1,14 @@
-#include "uFire_SHT3x.h"
+#include "Microfire_SHT3x.h"
 
-float uFire::SHT3x::_tempC = 0;
-float uFire::SHT3x::_tempF = 0;
-float uFire::SHT3x::_vpd_kPa = 0;
-float uFire::SHT3x::_dew_pointC = 0;
-float uFire::SHT3x::_dew_pointF = 0;
-float uFire::SHT3x::_RH = 0;
-int uFire::SHT3x::_status = 0;
+float Microfire::SHT3x::_tempC = 0;
+float Microfire::SHT3x::_tempF = 0;
+float Microfire::SHT3x::_vpd_kPa = 0;
+float Microfire::SHT3x::_dew_pointC = 0;
+float Microfire::SHT3x::_dew_pointF = 0;
+float Microfire::SHT3x::_RH = 0;
+int Microfire::SHT3x::_status = 0;
 
-namespace uFire
+namespace Microfire
 {
   bool SHT3x::begin(TwoWire &wirePort, uint8_t address)
   {

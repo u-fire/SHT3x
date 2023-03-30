@@ -8,7 +8,7 @@
 #define SHT3x_SOFT_RESET 0x30A2
 #define SHT3x_MEASUREMENT 0x2400 // high accuracy, no clock stretching
 
-namespace uFire
+namespace Microfire
 {
   class SHT3x
   {
