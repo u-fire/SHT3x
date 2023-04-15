@@ -18,6 +18,10 @@ namespace Microfire
     const float &vpd_kPa = _vpd_kPa;
     const float &dew_pointC = _dew_pointC;
     const float &dew_pointF = _dew_pointF;
+    const float &heat_indexF = _heat_indexF;
+    const float &heat_indexC = _heat_indexC;
+    const float &wet_bulbF = _wet_bulbF;
+    const float &wet_bulbC = _wet_bulbC;
     const float &RH = _RH;
     const int &status = _status;
 
@@ -39,12 +43,18 @@ namespace Microfire
     static float _dew_pointC;
     static float _dew_pointF;
     static float _RH;
+    static float _heat_indexC;
+    static float _heat_indexF;
+    static float _wet_bulbC;
+    static float _wet_bulbF;
     static int _status;
 
     uint8_t _address;
     TwoWire *_i2cPort;
     float _vpd();
     float _dew_point();
+    float _heat_index();
+    float _wet_bulb();
     void _measure_all();
     void _reset();
     bool _send_command(uint16_t command);

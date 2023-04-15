@@ -5,6 +5,10 @@ float Microfire::SHT3x::_tempF = 0;
 float Microfire::SHT3x::_vpd_kPa = 0;
 float Microfire::SHT3x::_dew_pointC = 0;
 float Microfire::SHT3x::_dew_pointF = 0;
+float Microfire::SHT3x::_heat_indexF = 0;
+float Microfire::SHT3x::_heat_indexC = 0;
+float Microfire::SHT3x::_wet_bulbF = 0;
+float Microfire::SHT3x::_wet_bulbC = 0;
 float Microfire::SHT3x::_RH = 0;
 int Microfire::SHT3x::_status = 0;
 
@@ -40,6 +44,8 @@ namespace Microfire
     {
       _vpd();
       _dew_point();
+      _heat_index();
+      _wet_bulb();
     }
     else
     {
@@ -64,6 +70,59 @@ namespace Microfire
 
     _dew_pointF = (_dew_pointC * 1.8) + 32;
     return _dew_pointC;
+  }
+
+  float SHT3x::_heat_index()
+  {
+    float _hi_f;
+    float adjustment;
+
+    // step 1
+    _hi_f = 0.5 * (_tempF + 61.0 + ((_tempF - 68.0) * 1.2) + (_RH * 0.094));
+    if (_hi_f <= 80.0)
+    {
+      _heat_indexF = _hi_f;
+      _heat_indexC = (_heat_indexF - 32.0) * (0.5556);
+
+      return _heat_indexC;
+    }
+
+    // step 2: heat index calc was over 80 F
+    _heat_indexF = -42.379 + 2.04901523 * _tempF + 10.14333127 * _RH - .22475541 * _tempF * _RH - .00683783 * _tempF * _tempF - .05481717 * _RH * _RH + .00122874 * _tempF * _tempF * _RH + .00085282 * _tempF * _RH * _RH - .00000199 * _tempF * _tempF * _RH * _RH;
+
+    // step 3: is RH less than 13 and temp F between 80 - 112
+    if (_RH <= 13.0)
+    {
+      if ((_tempF >= 80) && (_tempF <= 110.0))
+      {
+        adjustment = ((13.0 - _RH) / 4.0) * sqrt((17.0 - abs(_tempF - 95.0)) / 17.0);
+        _heat_indexF = _heat_indexF - adjustment;
+      }
+    }
+
+    // step 4: is RH more than 85 and tempF between 80 - 87
+    if (_RH >= 85.0)
+    {
+      if ((_tempF >= 80) && (_tempF <= 87.0))
+      {
+        adjustment =  ((_RH-85.0)/10.0) * ((87.0-_tempF)/5.0);
+        _heat_indexF = _heat_indexF + adjustment;
+      }
+    }
+    _heat_indexC = (_heat_indexF - 32.0) * (0.5556);
+    return _heat_indexC;
+  }
+
+  float SHT3x::_wet_bulb()
+  {
+    double a = _tempC * atan(0.151977 * pow((_RH + 8.313659), 0.5));
+    double b = atan(_tempC + _RH) - atan(_RH - 1.676331);
+    double c = 0.00391838 * pow(_RH, 1.5) * atan(0.023101 * _RH);
+    double tw = a + b + c - 4.686035;
+
+    _wet_bulbC = tw;
+    _wet_bulbF = (_wet_bulbC * 1.8) + 32;
+    return _wet_bulbC;
   }
 
   void SHT3x::_measure_all()

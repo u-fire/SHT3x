@@ -1,7 +1,7 @@
 SHT3x Temperature and Humidity Sensor
 ===
 
-Measure temperature and humidity with the Sensiron SHT3x sensor. VPD and dew point are also calculated.
+Measure temperature and humidity with the Sensiron SHT3x sensor. VPD and dew point are also calculated. Heat index and wet bulb temperature is also estimated.
 
 #### Summary ℹ️
 
@@ -15,7 +15,6 @@ Measure temperature and humidity with the Sensiron SHT3x sensor. VPD and dew poi
 ### Use
 
 *   [I²C Arduino Library Documentation](https://docs.google.com/document/d/1k31YoJEya31Z8UTROqXV7FxEQz_QPv1ihZgx1msThGA/export?format=pdf)
-*   [I²C Raspberry Pi Python Documentation](https://docs.google.com/document/d/1L6FEnlF9Ocf_z9inG57TkL7Tgxomp1aTuIEFOvAblIY/export?format=pdf)
 
 * * * 
 ### Ask a question 🤙

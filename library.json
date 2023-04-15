@@ -1,7 +1,7 @@
 {
   "name": "Microfire_SHT3x",
-  "keywords": "temperature, celsius, humidity, sht30, sht3x, vpd, dew point, vapor pressure deficit, rh",
-  "description": "Measure air temperature, humdity, VPD and dew point with a Sensiron SHT3x",
+  "keywords": "temperature, celsius, humidity, sht30, sht3x, vpd, dew point, vapor pressure deficit, rh, heat index, wet bulb",
+  "description": "Measure air temperature, humdity, VPD, dew point, heat index and wet bulb with a Sensiron SHT3x.",
   "repository": {
     "type": "git",
     "url": "https://github.com/u-fire/SHT3x.git"
@@ -14,7 +14,7 @@
       "maintainer": true
     }
   ],
-  "version": "0.9.1",
+  "version": "1.0.0",
   "frameworks": "arduino",
   "platforms": "*"
 }

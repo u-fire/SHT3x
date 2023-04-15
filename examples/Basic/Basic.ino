@@ -24,20 +24,24 @@ void loop()
   // display the results
   switch (sht30.status)
   {
-    case sht30.STATUS_NOT_CONNECTED:
-      Serial.println("Error: Sensor not connected");
-      break;
-    case sht30.STATUS_CRC_ERROR:
-      Serial.println("Error: CRC error");
-      break;
-    case sht30.STATUS_NO_ERROR:
-      Serial.println((String)sht30.tempC + " °C");
-      Serial.println((String)sht30.tempF + " °F");
-      Serial.println((String)sht30.RH + " %RH");
-      Serial.println((String)sht30.vpd_kPa + " VPD kPa");
-      Serial.println((String)sht30.dew_pointC + " dew point °C");
-      Serial.println((String)sht30.dew_pointF + " dew point °F");
-      break;
+  case sht30.STATUS_NOT_CONNECTED:
+    Serial.println("Error: Sensor not connected");
+    break;
+  case sht30.STATUS_CRC_ERROR:
+    Serial.println("Error: CRC error");
+    break;
+  case sht30.STATUS_NO_ERROR:
+    Serial.println((String)sht30.tempC + " °C");
+    Serial.println((String)sht30.tempF + " °F");
+    Serial.println((String)sht30.RH + " %RH");
+    Serial.println((String)sht30.vpd_kPa + " VPD kPa");
+    Serial.println((String)sht30.dew_pointC + " dew point °C");
+    Serial.println((String)sht30.dew_pointF + " dew point °F");
+    Serial.println((String)sht30.heat_indexC + " heat index °C");
+    Serial.println((String)sht30.heat_indexF + " heat index °F");
+    Serial.println((String)sht30.wet_bulbC + " wet bulb °C");
+    Serial.println((String)sht30.wet_bulbF + " wet bulb °F");
+    break;
   }
   delay(1000);
 }
